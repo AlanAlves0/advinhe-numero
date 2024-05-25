@@ -1,5 +1,8 @@
+
 function verificaSeOChutePossuiUmValorValido(chute){
     const numero = +chute
+    
+
 
     if(chuteForInvalido(numero)){
         elementoChute.innerHTML+='<div>Valor inválido</div>'
@@ -10,6 +13,9 @@ function verificaSeOChutePossuiUmValorValido(chute){
         elementoChute.innerHTML +=`<div>valor inválido: Fale um número entre ${menorValor} e ${maiorValor}</div>`
         return
     }
+
+ 
+           
 
     if(numero === numeroSecreto){
         document.body.innerHTML = `
@@ -33,8 +39,21 @@ function numeroForMaiorOuMenorQueOValorPermitido(numero){
     return numero > maiorValor || numero < menorValor
 }
 
+
 document.body.addEventListener('click',e =>{
     if(e.target.id == 'jogar-novamente'){
         window.location.reload()
     }
 })
+
+function fimDejogo(chute){
+    if(chute === "game over"){
+        document.body.style = "background-color: red;";
+        document.body.innerHTML = `
+        <h2>acabou!</h2>
+        <h3>Voc^ÇE falou a palavra proibida</h3>
+        <button id="jogar-novamente" class="btn-jogar">Jogar Novamente</button>
+        `
+}
+}
+
